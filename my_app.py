@@ -14,7 +14,7 @@ df = pd.DataFrame([np.random.randint(100,800,40), names*20, [year for year in da
 df = df.transpose()
 df.rename(columns = {0:"Value", 1:"Brand", 2:"Year"}, inplace = True)
 
-VALID_USERNAME_PASSWORD_PAIRS = {"username" : "password"}
+VALID_USERNAME_PASSWORD_PAIRS = {"login" : "password"}
 
 
 app = Dash(__name__)
