@@ -1,8 +1,7 @@
 import pandas as pd
 import numpy as np
 import plotly.express as px
-import datetime
-import dash_bootstrap_components as dbc
+
 from dash import Dash, dcc, html, Input, Output
 
 
@@ -41,4 +40,4 @@ def update_graph(year):
 
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(debug=False)
