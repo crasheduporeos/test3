@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import dash_auth
 
 from dash import Dash, dcc, html, Input, Output
 
@@ -13,13 +14,18 @@ df = pd.DataFrame([np.random.randint(100,800,40), names*20, [year for year in da
 df = df.transpose()
 df.rename(columns = {0:"Value", 1:"Brand", 2:"Year"}, inplace = True)
 
+VALID_USERNAME_PASSWORD_PAIRS = {"username" : "password"}
+
+
 app = Dash(__name__)
 server = app.server
 
-# auth = dash_auth.BasicAuth(
-#     app,
-#     VALID_USERNAME_PASSWORD_PAIRS
-# )
+auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+)
+
+
 
 
 app.layout = html.Div([
@@ -40,4 +46,4 @@ def update_graph(year):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=False)
+    app.run_server(debug=False, port = 8040)
